@@ -10,11 +10,14 @@ RUN cd /tmp && \
     tar xf /tmp/alertmanager.tar.gz && \
     mv /tmp/alertmanager-$ALERTMANAGER_VERSION.linux-amd64 /tmp/alertmanager
 
+RUN apt update && \
+    apt install -y ca-certificates
 
 FROM scratch
 
 COPY --from=build /tmp/alertmanager/alertmanager /alertmanager
 COPY --from=build /tmp/alertmanager/alertmanager.yml /etc/alertmanager/alertmanager.yml
+COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 
 COPY rootfs /
 
