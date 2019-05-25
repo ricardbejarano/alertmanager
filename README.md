@@ -20,7 +20,7 @@ Available on [Quay](https://quay.io) as [`quay.io/ricardbejarano/alertmanager`](
 
 ## Features
 
-* Can't get any smaller (`~26.9MB`)
+* Can't get any smaller (`~27.1MB`)
 * Binary pulled from the official website
 * Built `FROM scratch`, see the [Filesystem](#Filesystem) section below for an exhaustive list of the image's contents
 * Reduced attack surface (no `bash`, no UNIX tools, no package manager...)
@@ -51,7 +51,10 @@ The images' contents are:
     ├── alertmanager/
     │   └── alertmanager.yml
     ├── group
-    └── passwd
+    ├── passwd
+    └── ssl/
+        └── certs/
+            └── ca-certificates.crt
 ```
 
 
