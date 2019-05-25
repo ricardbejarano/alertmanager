@@ -13,6 +13,7 @@ RUN cd /tmp && \
 RUN apt update && \
     apt install -y ca-certificates
 
+
 FROM scratch
 
 COPY --from=build /tmp/alertmanager/alertmanager /alertmanager
