@@ -22,6 +22,9 @@ COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certifica
 
 COPY rootfs /
 
-USER alertmanager
+USER alertmanager:alertmanager
+WORKDIR /
+VOLUME ["/data"]
+EXPOSE 9093/tcp
 ENTRYPOINT ["/alertmanager"]
 CMD ["--config.file=/etc/alertmanager/alertmanager.yml"]
