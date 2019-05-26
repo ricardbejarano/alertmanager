@@ -26,16 +26,18 @@ Available on [Quay](https://quay.io) as [`quay.io/ricardbejarano/alertmanager`](
 * Reduced attack surface (no `bash`, no UNIX tools, no package manager...)
 
 
+## Configuration
+
+### Volumes
+
+- Bind your **configuration file** at `/etc/alertmanager/alertmanager.yml`.
+
+
 ## Building
 
 ```bash
 docker build -t alertmanager .
 ```
-
-
-## Volumes
-
-- Bind your **configuration file** at `/etc/alertmanager/alertmanager.yml`.
 
 
 ## Filesystem
