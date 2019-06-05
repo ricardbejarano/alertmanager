@@ -16,9 +16,9 @@ RUN apt update && \
 
 FROM scratch
 
-COPY --from=build /tmp/alertmanager/alertmanager /alertmanager
-COPY --from=build /tmp/alertmanager/alertmanager.yml /etc/alertmanager/alertmanager.yml
-COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+COPY --from=build /tmp/alertmanager/alertmanager.yml /etc/alertmanager/
+COPY --from=build /tmp/alertmanager/alertmanager /
 
 COPY rootfs /
 
