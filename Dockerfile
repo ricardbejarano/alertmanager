@@ -22,7 +22,6 @@ COPY --from=build /tmp/alertmanager/alertmanager /
 COPY rootfs /
 
 USER alertmanager:alertmanager
-WORKDIR /
 VOLUME ["/data"]
 EXPOSE 9093/tcp
 ENTRYPOINT ["/alertmanager"]
