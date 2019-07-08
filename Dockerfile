@@ -5,7 +5,7 @@ ARG ALERTMANAGER_CHECKSUM="7c8d2cfeb021c80881ae9904d959131091b8785b6fda9800f84dd
 
 ADD https://github.com/prometheus/alertmanager/releases/download/v$ALERTMANAGER_VERSION/alertmanager-$ALERTMANAGER_VERSION.linux-amd64.tar.gz /tmp/alertmanager.tar.gz
 
-RUN if [ "$ALERTMANAGER_CHECKSUM" != "$(sha256sum /tmp/alertmanager.tar.gz | awk '{print $1}')" ]; then exit 1; fi && \
+RUN [ "$ALERTMANAGER_CHECKSUM" = "$(sha256sum /tmp/alertmanager.tar.gz | awk '{print $1}')" ] && \
     tar -C /tmp -xf /tmp/alertmanager.tar.gz && \
     mv /tmp/alertmanager-$ALERTMANAGER_VERSION.linux-amd64 /tmp/alertmanager
 
