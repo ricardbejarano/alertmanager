@@ -9,13 +9,13 @@
 
 Available on [Docker Hub](https://hub.docker.com) as [`ricardbejarano/alertmanager`](https://hub.docker.com/r/ricardbejarano/alertmanager):
 
-- [`0.17.0`, `master`, `latest` *(Dockerfile)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile)
+- [`0.18.0`, `master`, `latest` *(Dockerfile)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile)
 
 ### Quay
 
 Available on [Quay](https://quay.io) as [`quay.io/ricardbejarano/alertmanager`](https://quay.io/repository/ricardbejarano/alertmanager):
 
-- [`0.17.0`, `master`, `latest` *(Dockerfile)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile)
+- [`0.18.0`, `master`, `latest` *(Dockerfile)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile)
 
 
 ## Features

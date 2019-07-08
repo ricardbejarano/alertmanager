@@ -1,7 +1,7 @@
 FROM debian AS build
 
-ARG ALERTMANAGER_VERSION="0.17.0"
-ARG ALERTMANAGER_CHECKSUM="7c8d2cfeb021c80881ae9904d959131091b8785b6fda9800f84ddef148fe0a4f"
+ARG ALERTMANAGER_VERSION="0.18.0"
+ARG ALERTMANAGER_CHECKSUM="5f17155d669a8d2243b0d179fa46e609e0566876afd0afb09311a8bc7987ab15"
 
 ADD https://github.com/prometheus/alertmanager/releases/download/v$ALERTMANAGER_VERSION/alertmanager-$ALERTMANAGER_VERSION.linux-amd64.tar.gz /tmp/alertmanager.tar.gz
 
