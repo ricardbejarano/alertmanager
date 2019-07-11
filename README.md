@@ -30,6 +30,7 @@ Available on [Quay](https://quay.io) as [`quay.io/ricardbejarano/alertmanager`](
 
 ### Volumes
 
+- Bind your **data** at `/data`.
 - Bind your **configuration** at `/etc/alertmanager/alertmanager.yml`.
 
 
