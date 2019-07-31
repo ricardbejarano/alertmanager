@@ -1,0 +1,34 @@
+FROM golang:1.12.7 AS build
+
+ARG ALERTMANAGER_VERSION="0.18.0"
+ARG ALERTMANAGER_CHECKSUM="aa9536f001c4c46ceb5aa1767c81922777b3a2740529d25d86c9f27554cbd466"
+
+ADD https://github.com/prometheus/alertmanager/archive/v$ALERTMANAGER_VERSION.tar.gz /tmp/alertmanager.tar.gz
+
+RUN [ "$ALERTMANAGER_CHECKSUM" = "$(sha256sum /tmp/alertmanager.tar.gz | awk '{print $1}')" ] && \
+    tar -C /tmp -xf /tmp/alertmanager.tar.gz && \
+    mkdir -p /go/src/github.com/prometheus && \
+    mv /tmp/alertmanager-$ALERTMANAGER_VERSION /go/src/github.com/prometheus/alertmanager
+
+RUN apt update && \
+    apt install -y ca-certificates && \
+    cd /go/src/github.com/prometheus/alertmanager && \
+      make build && \
+    mkdir /tmp/data && \
+	  echo "nogroup:*:100:nobody" > /tmp/group && \
+	  echo "nobody:*:100:100:::" > /tmp/passwd
+
+
+FROM scratch
+
+COPY --from=build --chown=100:100 /go/src/github.com/prometheus/alertmanager/alertmanager /
+COPY --from=build --chown=100:100 /tmp/data /data
+COPY --from=build --chown=100:100 /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+COPY --from=build --chown=100:100 /tmp/group \
+                                  /tmp/passwd \
+                                  /etc/
+
+USER 100:100
+VOLUME ["/data"]
+EXPOSE 9093/tcp
+ENTRYPOINT ["/alertmanager"]

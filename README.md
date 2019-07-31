@@ -1,6 +1,6 @@
-<p align=center><img src=https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/198/police-cars-revolving-light_1f6a8.png width=120px></p>
-<h1 align=center>alertmanager (container image)</h1>
-<p align=center>The simplest container image of the official Prometheus <a href=https://github.com/prometheus/alertmanager>alertmanager</a></p>
+<p align="center"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/198/police-cars-revolving-light_1f6a8.png" width="120px"></p>
+<h1 align="center">alertmanager (container image)</h1>
+<p align="center">Built-from-source container image of Prometheus' <a href="https://github.com/prometheus/alertmanager">alertmanager</a></p>
 
 
 ## Tags
@@ -9,50 +9,47 @@
 
 Available on [Docker Hub](https://hub.docker.com) as [`ricardbejarano/alertmanager`](https://hub.docker.com/r/ricardbejarano/alertmanager):
 
-- [`0.18.0`, `master`, `latest` *(Dockerfile)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile)
+- [`0.18.0-glibc`, `0.18.0`, `glibc`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.glibc)
+- [`0.18.0-musl`, `musl` *(Dockerfile.musl)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.musl)
 
 ### Quay
 
-Available on [Quay](https://quay.io) as [`quay.io/ricardbejarano/alertmanager`](https://quay.io/repository/ricardbejarano/alertmanager):
+Available on [Quay](https://quay.io) as:
 
-- [`0.18.0`, `master`, `latest` *(Dockerfile)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile)
+- [`quay.io/ricardbejarano/alertmanager-glibc`](https://quay.io/repository/ricardbejarano/alertmanager-glibc), tags: [`0.18.0`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.glibc)
+- [`quay.io/ricardbejarano/alertmanager-musl`](https://quay.io/repository/ricardbejarano/alertmanager-musl), tags: [`0.18.0`, `master`, `latest` *(Dockerfile.musl)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.musl)
 
 
 ## Features
 
-* Super tiny (`~27.1MB`)
-* Binary pulled from official website
-* Built `FROM scratch`, see [Filesystem](#filesystem) for an exhaustive list of the image's contents
+* Super tiny (about `27.1MB`)
+* Compiled from source during build time
+* Built `FROM scratch`, with zero bloat (see [Filesystem](#filesystem))
 * Reduced attack surface (no shell, no UNIX tools, no package manager...)
+* Runs as unprivileged (non-`root`) user
+
+
+## Building
+
+- To build the `glibc`-based image: `$ docker build -t alertmanager:glibc -f Dockerfile.glibc .`
+- To build the `musl`-based image: `$ docker build -t alertmanager:musl -f Dockerfile.musl .`
 
 
 ## Configuration
 
 ### Volumes
 
-- Bind your **data** at `/data`.
-- Bind your **configuration** at `/etc/alertmanager/alertmanager.yml`.
-
-
-## Building
-
-```bash
-docker build -t alertmanager .
-```
+- Mount your **data** at `/data`.
+- Mount your **configuration** at `/alertmanager.yml`.
 
 
 ## Filesystem
-
-The images' contents are:
 
 ```
 /
 ├── alertmanager
 ├── data/
-│   └── .keep
 └── etc/
-    ├── alertmanager/
-    │   └── alertmanager.yml
     ├── group
     ├── passwd
     └── ssl/
