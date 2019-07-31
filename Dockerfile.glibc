@@ -15,8 +15,8 @@ RUN apt update && \
     cd /go/src/github.com/prometheus/alertmanager && \
       make build && \
     mkdir /tmp/data && \
-	  echo "nogroup:*:100:nobody" > /tmp/group && \
-	  echo "nobody:*:100:100:::" > /tmp/passwd
+    echo "nogroup:*:100:nobody" > /tmp/group && \
+    echo "nobody:*:100:100:::" > /tmp/passwd
 
 
 FROM scratch
