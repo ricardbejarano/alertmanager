@@ -13,9 +13,9 @@ RUN [ "$ALERTMANAGER_CHECKSUM" = "$(sha256sum /tmp/alertmanager.tar.gz | awk '{p
 RUN apk add make curl ca-certificates && \
     cd /go/src/github.com/prometheus/alertmanager && \
       make build && \
-    mkdir /tmp/data && \
     echo "nogroup:*:100:nobody" > /tmp/group && \
-    echo "nobody:*:100:100:::" > /tmp/passwd
+    echo "nobody:*:100:100:::" > /tmp/passwd && \
+    mkdir -p /tmp/data
 
 
 FROM scratch
