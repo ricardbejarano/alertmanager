@@ -1,7 +1,7 @@
 FROM golang:1-alpine AS build
 
-ARG VERSION="0.18.0"
-ARG CHECKSUM="aa9536f001c4c46ceb5aa1767c81922777b3a2740529d25d86c9f27554cbd466"
+ARG VERSION="0.19.0"
+ARG CHECKSUM="4730664f746173f89804df43b3f608cac030e79baae165d6d99df472eb52d36a"
 
 ADD https://github.com/prometheus/alertmanager/archive/v$VERSION.tar.gz /tmp/alertmanager.tar.gz
 
