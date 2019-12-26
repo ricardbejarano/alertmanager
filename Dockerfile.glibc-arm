@@ -19,7 +19,7 @@ RUN apt update && \
     mkdir -p /tmp/data
 
 
-FROM scratch
+FROM ricardbejarano/scratch:arm
 
 COPY --from=build --chown=100:100 /go/src/github.com/prometheus/alertmanager/alertmanager /
 COPY --from=build --chown=100:100 /tmp/data /data
