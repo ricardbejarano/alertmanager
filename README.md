@@ -9,15 +9,15 @@
 
 Available on [Docker Hub](https://hub.docker.com) as [`ricardbejarano/alertmanager`](https://hub.docker.com/r/ricardbejarano/alertmanager):
 
-- [`0.20.0-glibc`, `0.20.0`, `glibc`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.glibc) (about `26.9MB`)
-- [`0.20.0-musl`, `musl` *(Dockerfile.musl)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.musl) (about `26.9MB`)
+- [`0.21.0-glibc`, `0.21.0`, `glibc`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.glibc) (about `26.9MB`)
+- [`0.21.0-musl`, `musl` *(Dockerfile.musl)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.musl) (about `26.9MB`)
 
 ### Quay
 
 Available on [Quay](https://quay.io) as:
 
-- [`quay.io/ricardbejarano/alertmanager`](https://quay.io/repository/ricardbejarano/alertmanager), [`quay.io/ricardbejarano/alertmanager-glibc`](https://quay.io/repository/ricardbejarano/alertmanager-glibc), tags: [`0.20.0`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.glibc) (about `26.9MB`)
-- [`quay.io/ricardbejarano/alertmanager-musl`](https://quay.io/repository/ricardbejarano/alertmanager-musl), tags: [`0.20.0`, `master`, `latest` *(Dockerfile.musl)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.musl) (about `26.9MB`)
+- [`quay.io/ricardbejarano/alertmanager`](https://quay.io/repository/ricardbejarano/alertmanager), [`quay.io/ricardbejarano/alertmanager-glibc`](https://quay.io/repository/ricardbejarano/alertmanager-glibc), tags: [`0.21.0`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.glibc) (about `26.9MB`)
+- [`quay.io/ricardbejarano/alertmanager-musl`](https://quay.io/repository/ricardbejarano/alertmanager-musl), tags: [`0.21.0`, `master`, `latest` *(Dockerfile.musl)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.musl) (about `26.9MB`)
 
 
 ## Features
