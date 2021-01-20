@@ -8,14 +8,10 @@ ADD https://github.com/prometheus/alertmanager/archive/v$VERSION.tar.gz /tmp/ale
 RUN [ "$CHECKSUM" = "$(sha256sum /tmp/alertmanager.tar.gz | awk '{print $1}')" ] && \
     mkdir -p /go/src/github.com/prometheus && \
     tar -C /go/src/github.com/prometheus -xf /tmp/alertmanager.tar.gz && \
-    apk add \
-    	ca-certificates \
-    	curl \
-    	make && \
+    apk add ca-certificates curl make && \
     cd /go/src/github.com/prometheus/alertmanager-$VERSION && \
-      make build
-
-RUN mkdir -p /rootfs/bin /rootfs/etc/ssl/certs /rootfs/data && \
+    make build && \
+    mkdir -p /rootfs/bin /rootfs/etc/ssl/certs /rootfs/data && \
     cp /go/src/github.com/prometheus/alertmanager-$VERSION/alertmanager /rootfs/bin/ && \
     echo "nogroup:*:10000:nobody" > /rootfs/etc/group && \
     echo "nobody:*:10000:10000:::" > /rootfs/etc/passwd && \
