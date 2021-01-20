@@ -7,13 +7,13 @@
 
 ### Docker Hub
 
-Available on Docker Hub as [`ricardbejarano/alertmanager`](https://hub.docker.com/r/ricardbejarano/alertmanager):
+Available on Docker Hub as [`docker.io/ricardbejarano/alertmanager`](https://hub.docker.com/r/ricardbejarano/alertmanager):
 
 - [`0.21.0`, `latest` *(Dockerfile)*](Dockerfile)
 
 ### RedHat Quay
 
-Available on RedHat Quay as [`ricardbejarano/alertmanager`](https://quay.io/repository/ricardbejarano/alertmanager):
+Available on RedHat Quay as [`quay.io/ricardbejarano/alertmanager`](https://quay.io/repository/ricardbejarano/alertmanager):
 
 - [`0.21.0`, `latest` *(Dockerfile)*](Dockerfile)
 
