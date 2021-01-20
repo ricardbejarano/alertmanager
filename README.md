@@ -1,38 +1,36 @@
 <p align="center"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/198/police-cars-revolving-light_1f6a8.png" width="120px"></p>
 <h1 align="center">alertmanager (container image)</h1>
-<p align="center">Built-from-source container image of Prometheus' <a href="https://github.com/prometheus/alertmanager">alertmanager</a></p>
+<p align="center">Built-from-source container image of <a href="https://prometheus.io/">Prometheus</a>' <a href="https://github.com/prometheus/alertmanager">Alertmanager</a></p>
 
 
 ## Tags
 
 ### Docker Hub
 
-Available on [Docker Hub](https://hub.docker.com) as [`ricardbejarano/alertmanager`](https://hub.docker.com/r/ricardbejarano/alertmanager):
+Available on Docker Hub as [`ricardbejarano/alertmanager`](https://hub.docker.com/r/ricardbejarano/alertmanager):
 
-- [`0.21.0-glibc`, `0.21.0`, `glibc`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.glibc) (about `26.9MB`)
-- [`0.21.0-musl`, `musl` *(Dockerfile.musl)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.musl) (about `26.9MB`)
+- [`0.21.0`, `latest` *(Dockerfile)*](Dockerfile)
 
-### Quay
+### RedHat Quay
 
-Available on [Quay](https://quay.io) as:
+Available on RedHat Quay as [`ricardbejarano/alertmanager`](https://quay.io/repository/ricardbejarano/alertmanager):
 
-- [`quay.io/ricardbejarano/alertmanager`](https://quay.io/repository/ricardbejarano/alertmanager), [`quay.io/ricardbejarano/alertmanager-glibc`](https://quay.io/repository/ricardbejarano/alertmanager-glibc), tags: [`0.21.0`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.glibc) (about `26.9MB`)
-- [`quay.io/ricardbejarano/alertmanager-musl`](https://quay.io/repository/ricardbejarano/alertmanager-musl), tags: [`0.21.0`, `master`, `latest` *(Dockerfile.musl)*](https://github.com/ricardbejarano/alertmanager/blob/master/Dockerfile.musl) (about `26.9MB`)
+- [`0.21.0`, `latest` *(Dockerfile)*](Dockerfile)
 
 
 ## Features
 
-* Super tiny (see [Tags](#tags))
 * Compiled from source during build time
-* Built `FROM scratch`, with zero bloat (see [Filesystem](#filesystem))
+* Built `FROM scratch`, with zero bloat
 * Reduced attack surface (no shell, no UNIX tools, no package manager...)
 * Runs as unprivileged (non-`root`) user
 
 
 ## Building
 
-- To build the `glibc`-based image: `$ docker build -t alertmanager:glibc -f Dockerfile.glibc .`
-- To build the `musl`-based image: `$ docker build -t alertmanager:musl -f Dockerfile.musl .`
+```bash
+docker build --tag ricardbejarano/alertmanager --file Dockerfile .
+```
 
 
 ## Configuration
@@ -43,21 +41,6 @@ Available on [Quay](https://quay.io) as:
 - Mount your **configuration** at `/alertmanager.yml`.
 
 
-## Filesystem
-
-```
-/
-├── alertmanager
-├── data/
-└── etc/
-    ├── group
-    ├── passwd
-    └── ssl/
-        └── certs/
-            └── ca-certificates.crt
-```
-
-
 ## License
 
-See [LICENSE](https://github.com/ricardbejarano/alertmanager/blob/master/LICENSE).
+MIT licensed, see [LICENSE](LICENSE) for more details.
