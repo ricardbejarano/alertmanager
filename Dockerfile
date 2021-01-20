@@ -10,6 +10,7 @@ RUN [ "$CHECKSUM" = "$(sha256sum /tmp/alertmanager.tar.gz | awk '{print $1}')" ]
     tar -C /go/src/github.com/prometheus -xf /tmp/alertmanager.tar.gz && \
     apk add \
     	ca-certificates \
+    	curl \
     	make && \
     cd /go/src/github.com/prometheus/alertmanager-$VERSION && \
       make build
