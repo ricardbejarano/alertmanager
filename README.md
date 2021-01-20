@@ -22,6 +22,7 @@ Available on RedHat Quay as [`quay.io/ricardbejarano/alertmanager`](https://quay
 
 * Compiled from source during build time
 * Built `FROM scratch`, with zero bloat
+* Statically linked to the [`musl`](https://musl.libc.org/) implementation of the C standard library
 * Reduced attack surface (no shell, no UNIX tools, no package manager...)
 * Runs as unprivileged (non-`root`) user
 
