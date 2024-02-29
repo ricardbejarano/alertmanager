@@ -20,13 +20,13 @@
 
 Available on Docker Hub as [`docker.io/ricardbejarano/alertmanager`](https://hub.docker.com/r/ricardbejarano/alertmanager):
 
-- [`0.26.0`, `latest` *(Dockerfile)*](Dockerfile)
+- [`0.27.0`, `latest` *(Dockerfile)*](Dockerfile)
 
 ### RedHat Quay
 
 Available on RedHat Quay as [`quay.io/ricardbejarano/alertmanager`](https://quay.io/repository/ricardbejarano/alertmanager):
 
-- [`0.26.0`, `latest` *(Dockerfile)*](Dockerfile)
+- [`0.27.0`, `latest` *(Dockerfile)*](Dockerfile)
 
 
 ## Configuration
