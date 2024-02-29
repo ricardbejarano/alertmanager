@@ -6,7 +6,7 @@ ARG CHECKSUM="c21ede46b0471adb4d7bd75f09e57d44d969801717a6e0ef36ee37e4cdf25dd8"
 ADD https://github.com/prometheus/alertmanager/archive/v$VERSION.tar.gz /tmp/alertmanager.tar.gz
 
 RUN [ "$(sha256sum /tmp/alertmanager.tar.gz | awk '{print $1}')" = "$CHECKSUM" ] && \
-    apk add ca-certificates curl make && \
+    apk add bash ca-certificates curl make npm && \
     tar -C /tmp -xf /tmp/alertmanager.tar.gz && \
     mkdir -p /go/src/github.com/prometheus && \
     mv /tmp/alertmanager-$VERSION /go/src/github.com/prometheus/alertmanager && \
